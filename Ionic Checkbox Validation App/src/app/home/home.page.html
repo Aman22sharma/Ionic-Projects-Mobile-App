@@ -1,0 +1,96 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Checkbox Validation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Checkbox Validation</ion-title>
+    </ion-toolbar>
+  </ion-header>
+ <!----------------Main-Div-Container1------------------------------->
+ <div>
+  <!----------------Toggle section (Button)------------------------------
+  <ion-item color="secondary" class="section">
+      <ion-label>
+          Semester-1
+      </ion-label>
+      <ion-icon name="add-circle" slot="end" (click)="toggle()"></ion-icon>
+  </ion-item>-->
+
+  <!----------------Main (Parent) Checkbox------------------------------->
+
+  <ion-list lines="full" class="section">
+      <ion-item color="secondary" class="section">
+          <ion-label><strong>Semester-1 Subjects</strong></ion-label>
+          <ion-checkbox slot="start" [(ngModel)]="checkParent" [indeterminate]="indeterminateState" (click)="checkCheckbox($event)"></ion-checkbox>
+          <button class="btn" (click)="toggleZipped()"><ion-icon [name]="zipped ? 'add-circle' : 'remove-circle'" slot="end" (click)="toggle()"></ion-icon></button>
+      </ion-item>
+  </ion-list>
+
+  <!--<ion-list lines="full" class="section">
+      <ion-item color="secondary" class="section">
+          <ion-label><strong>Semester-1 Subjects</strong></ion-label>
+          <ion-checkbox slot="start" [(ngModel)]="checkParent" [indeterminate]="indeterminateState" (click)="checkCheckbox($event)"></ion-checkbox>
+          <button class="btn"><ion-icon name="add-circle" slot="end" (click)="hide()"></ion-icon></button>
+          <button class="btn"><ion-icon name="remove-circle" slot="end" (click)="hide1()"></ion-icon></button>
+      </ion-item>
+  </ion-list>-->
+
+  <!----------------Sub Checkbox------------------------------->
+  <ng-container *ngIf="show">
+      <ion-list class="ion-padding" class="section">
+          <ion-item *ngFor="let checkboxes of Checkboxes">
+              <ion-label>{{checkboxes.value}}</ion-label>
+              <ion-checkbox slot="start" [(ngModel)]="checkboxes.isItemChecked" (ionChange)="verifyEvent()">
+              </ion-checkbox>
+          </ion-item>
+      </ion-list>
+  </ng-container>
+</div>
+<!----------------Main-Div-Container2------------------------------->
+<div>
+  <!----------------Toggle section (Button)------------------------------
+  <ion-item color="secondary" class="section">
+      <ion-label>
+          Semester-2
+      </ion-label>
+      <ion-icon name="add-circle" slot="end" (click)="toggle1()"></ion-icon>
+  </ion-item>-->
+
+  <!----------------Main (Parent) Checkbox------------------------------>
+  <ion-list lines="full" class="section">
+      <ion-item color="secondary" class="section">
+          <ion-label><strong>Semester-2 Subjects</strong></ion-label>
+          <ion-checkbox slot="start" [(ngModel)]="checkParent1" [indeterminate]="indeterminateState1" (click)="checkCheckbox1($event)"></ion-checkbox>
+          <button class="btn" (click)="toggleZipped1()"><ion-icon [name]="zipped1 ? 'add-circle' : 'remove-circle'" slot="end" (click)="toggle1()"></ion-icon></button>
+      </ion-item>
+  </ion-list>
+
+  <!--<ion-list lines="full" class="section">
+      <ion-item color="secondary" class="section">
+          <ion-label><strong>Semester-2 Subjects</strong></ion-label>
+          <ion-checkbox slot="start" [(ngModel)]="checkParent1" [indeterminate]="indeterminateState1" (click)="checkCheckbox1($event)"></ion-checkbox>
+          <button class="btn"><ion-icon name="add-circle" slot="end" (click)="hide2()"></ion-icon></button>
+          <button class="btn"><ion-icon name="remove-circle" slot="end" (click)="hide3()"></ion-icon></button>
+      </ion-item>
+  </ion-list>-->
+
+  <!----------------Sub Checkbox------------------------------->
+  <ng-container *ngIf="show1">
+      <ion-list class="ion-padding" class="section">
+          <ion-item *ngFor="let checkboxes1 of Checkboxes1">
+              <ion-label>{{checkboxes1.value}}</ion-label>
+              <ion-checkbox slot="start" [(ngModel)]="checkboxes1.isItemChecked" (ionChange)="verifyEvent1()">
+              </ion-checkbox>
+          </ion-item>
+      </ion-list>
+  </ng-container>
+
+</div>
+  
+</ion-content>
